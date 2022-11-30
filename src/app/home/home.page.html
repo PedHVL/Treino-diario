@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="apoio">
+    <div class="texto">    
+    <h1>Diario de treino</h1>
+  </div>
+
+  <div class="segunda">
+  <ion-item class="ion">
+    <ion-label position="floating">
+      Registre seus treinos
+    </ion-label>
+    <ion-input [(ngModel)]="novaTarefa"></ion-input>
+    <ion-button  [disabled]="!novaTarefa" slot="end" size="default" expand="full" (click)="cadastrarTarefa()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+  </ion-item>
+</div>
+<h2>Treinos:</h2>
+  <ion-list lines="full">
+    <ion-item-group *ngFor="let tarefa of tarefas; let id = index">
+      <ion-item-sliding (ionSwipe)="removerTarefa(id)">
+        <ion-item>{{ tarefa }}</ion-item>
+        <ion-item-options side="end">
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
+  
+</div>
+
+</ion-content>
